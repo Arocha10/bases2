@@ -1,3 +1,8 @@
+/* 
+Andres Rocha 12-11247
+Francisco Rojas 12-10515
+*/
+
 /*  Instancias de la entidad equipo  */
 INSERT INTO equipo values ('real madrid','madrid');
 INSERT INTO equipo values ('barca','barcelona');
@@ -57,8 +62,17 @@ FROM equipo a where a.nombre='chelsea';
 INSERT INTO integrante SELECT jugador_t( 'morata', '001','23', 'espana', REF(a),'del','23','2', REF(b))
 FROM equipo a , integrante b WHERE a.nombre = 'real madrid' and b.nombre= 'Francisco';
 
-INSERT INTO integrante SELECT jugador_t( 'lionel', '10','28', 'argentina', REF(a),'del','10','200', REF(b))
+INSERT INTO integrante SELECT jugador_t( 'lionel', '10','28', 'argentina', REF(a),'del','100','10', REF(b))
 FROM equipo a , integrante b WHERE a.nombre = 'barca' and b.nombre= 'luis enrique';
 
-INSERT INTO integrante SELECT jugador_t( 'cristiano', '7','31', 'portugal', REF(a),'del','19','200', REF(b))
+INSERT INTO integrante SELECT jugador_t( 'cristiano', '7','31', 'portugal', REF(a),'del','99','7', REF(b))
 FROM equipo a , integrante b WHERE a.nombre = 'real madrid' and b.nombre= 'mourinho';
+
+/* Consulta de la tabla anidada */
+
+SELECT Patrocinadores FROM equipo a where a.nombre ='bernabeu';
+
+/* Consulta de la subclase */
+
+SELECT TREAT(VALUE(t) AS jugador_t).numero 
+   FROM integrante t where TREAT(VALUE(t) AS jugador_t).numero  IS NOT NULL;

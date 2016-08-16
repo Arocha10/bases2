@@ -1,3 +1,7 @@
+/* 
+Andres Rocha 12-11247
+Francisco Rojas 12-10515
+*/
 
 CREATE OR REPLACE TYPE equipo_t AS OBJECT ( 
 	Nombre VARCHAR2(20),  
