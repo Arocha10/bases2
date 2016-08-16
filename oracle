@@ -128,13 +128,13 @@ INSERT INTO ganador Select REF(a) , REF(b), '12'
 FROM equipo a, titulo b WHERE a.nombre='barca' and b.nombre='Liga espana' ;
 
 INSERT INTO integrante Select 'francisco','1234','21','vz',REF (a)
-From equipo a where a.nombre='real madird';
+From equipo a where a.nombre='real madrid';
 
 INSERT INTO integrante SELECT entrenador_t(  'mou','123', '21', 'vz', REF(a), 'gay','3')
-FROM equipo a where a.nombre='real madird';
+FROM equipo a where a.nombre='real madrid';
 
 INSERT INTO integrante SELECT jugador_t( 'morata', '001','23', 'espana', REF(a),'del','23','2', REF(b))
-FROM equipo a , integrante b WHERE a.nombre = 'real madird' and b.nombre= 'n1';
+FROM equipo a , integrante b WHERE a.nombre = 'real madrid' and b.nombre= 'n1';
 
 INSERT INTO integrante Select 'n1','p1','e1','espana',REF(a)
-FROM equipo a WHERE a.nombre = 'real madird';
+FROM equipo a WHERE a.nombre = 'real madrid';
