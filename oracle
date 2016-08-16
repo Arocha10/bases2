@@ -42,7 +42,7 @@ CREATE OR REPLACE TYPE jugador_t UNDER integrante_t (
 
 	Numero VARCHAR(20),
 
-	rel REF integrante_t);
+	Coop REF integrante_t);
 /
 
 
