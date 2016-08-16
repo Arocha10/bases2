@@ -1,7 +1,7 @@
 
 CREATE OR REPLACE TYPE equipo_t AS OBJECT ( 
 	Nombre VARCHAR2(20),  
-	Ciudad VARCHAR2(20) 
+	Ciudad VARCHAR2(20)
 );
 /
 
@@ -62,6 +62,9 @@ CREATE TABLE ganador of ganador_t(
 CREATE OR REPLACE TYPE patr_tab AS Table OF VARCHAR2(20);
 /
 
+CREATE OR REPLACE TYPE integrantes_tab AS Table OF integrante_t;
+/
+
 CREATE OR REPLACE TYPE estadio_t AS OBJECT (	
 	Nombre VARCHAR(20),	
 	Dir VARCHAR(100),	
@@ -77,7 +80,14 @@ CREATE TABLE estadio OF estadio_t(
 	PRIMARY KEY (nombre)	
 )NESTED TABLE patrocinadores STORE AS ptr_tab_store;
 
+ALTER TYPE equipo_t
+ADD MEMBER FUNCTION getEstadio RETURN estadio_t CASCADE;
+
+ALTER TYPE equipo_t
+ADD MEMBER FUNCTION getIntegrantes RETURN integrantes_tab CASCADE;
+
 ALTER TABLE estadio
 ADD CONSTRAINT fk_equipo
 	FOREIGN KEY (equipo)
 	REFERENCES equipo;
+

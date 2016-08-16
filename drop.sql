@@ -1,13 +1,13 @@
 DROP TABLE estadio;
-DROP TYPE estadio_t;
+DROP TYPE estadio_t force;
 DROP TYPE patr_tab;
 DROP TABLE ganador;
 DROP TYPE ganador_t;
 DROP TABLE titulo;
 DROP TYPE titulo_t;
 DROP TABLE integrante;
-DROP TYPE jugador_t;
+DROP TYPE jugador_t force;
 DROP TYPE entrenador_t;
-DROP TYPE integrante_t;
+DROP TYPE integrante_t force;
 DROP TABLE equipo;
 DROP TYPE equipo_t;
