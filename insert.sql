@@ -1,6 +1,6 @@
 INSERT INTO equipo values ('real madrid','madrid');
 INSERT INTO equipo values ('barca','barcelona');
-INSERT INTO equipo values ('Chelsea','londres');
+INSERT INTO equipo values ('chelsea','londres');
 
 /*  Instancias de la entidad estadio  */  
 INSERT INTO estadio Select 'bernabeu','calle 17','20000','177', REF (a), patr_tab('nike','underarmor') 
@@ -9,22 +9,22 @@ FROM equipo a WHERE a.nombre = 'real madrid';
 INSERT INTO estadio Select 'camp nou','calle cataluny','00021','7/2', REF (a), patr_tab('adidas','ovejita') 
 FROM equipo a WHERE a.nombre = 'barca';
 
-INSERT INTO estadio Select 'standfor bridge','londres','street nine','100000','17/22', REF (a), patr_tab('rayban','susuki') 
+INSERT INTO estadio Select 'standfor bridge','street nine','100000','17/22', REF (a), patr_tab('rayban','susuki') 
 FROM equipo a WHERE a.nombre = 'chelsea';
 
 /*  Instancias de la entidad titulo  */ 
 
-INSERT INTO titulo values( 'Liga espana','1er', '1000');
-INSTER INTO titulo values('Liga adelante', '2da', '10');
+INSERT INTO titulo values('Liga espana','1er','1000');
+INSTER INTO titulo values('Liga adelante','2da','10');
 INSERT INTO titulo values('Barclays premier','1er','100000');
 
 /*  Instancias de la entidad ganador  */ 
 
 INSERT INTO ganador Select REF(a) , REF(b), '28/05/2015'
-FROM equipo a, titulo b WHERE a.nombre='barca' and b.nombre='Liga espana' ;
+FROM equipo a, titulo b WHERE a.nombre='barca' and b.nombre='Liga espana';
 
 INSERT INTO ganador Select REF(a) , REF(b), '28/05/2010'
-FROM equipo a, titulo b WHERE a.nombre='real madrid' and b.nombre='Liga espana' ;
+FROM equipo a, titulo b WHERE a.nombre='real madrid' and b.nombre='Liga espana';
 
 INSERT INTO ganador Select REF(a) , REF(b), '28/05'
 FROM equipo a, titulo b WHERE a.nombre='chelsea' and b.nombre='Barclays premier' ;
@@ -42,13 +42,13 @@ From equipo a where a.nombre='real madrid';
 
 /*  Instancias de la entidad entrenador  */ 
 
-INSERT INTO integrante SELECT entrenador_t(  'mourinho','456', '35', 'Portugal', REF(a), 'alternativo',5')
+INSERT INTO integrante SELECT entrenador_t('mourinho','456', '35', 'Portugal', REF(a), 'alternativo','5')
 FROM equipo a where a.nombre='real madrid';
 
-INSERT INTO integrante SELECT entrenador_t(  'luis enrique','1298', '26', 'Espana', REF(a), 'ofensivo',4')
+INSERT INTO integrante SELECT entrenador_t('luis enrique','1298', '26', 'Espana', REF(a), 'ofensivo','4')
 FROM equipo a where a.nombre='barca';
 
-INSERT INTO integrante SELECT entrenador_t(  'Antonio','777', '22', 'Italia', REF(a), 'defensivo',4')
+INSERT INTO integrante SELECT entrenador_t('Antonio','777', '22', 'Italia', REF(a), 'defensivo','4')
 FROM equipo a where a.nombre='chelsea';
 
 /*  Instancias de la entidad jugador  */ 
