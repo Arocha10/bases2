@@ -1,0 +1,7 @@
+relacion 1:1 ---> Pusimos una referencia de equipo en el estadio y una member function para poder obtener desde el equipo el estadio.
+
+relacion M:N ---> Creamos una tabla para almacenar la relacion entre titulo y equipo. La tabla para la relacion se creo con el nombre ganador y almacena la refrencia de cada entidad.
+
+relacion 1:N ---> Pusimos una refencia en la entidad del lado de la cardinalidad N  y en el lado de cardinalidad 1 creamos una member function que regresa una tabla de referencias.
+
+atributo multievaluado ---> lo creamos como un tipo tabla del tipo patrocinador_t.
