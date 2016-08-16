@@ -1,3 +1,9 @@
+/* 
+Andres Rocha 12-11247
+Francisco Rojas 12-10515
+*/
+
+
 relacion 1:1 ---> Pusimos una referencia de equipo en el estadio y una member function para poder obtener desde el equipo el estadio.
 
 relacion M:N ---> Creamos una tabla para almacenar la relacion entre titulo y equipo. La tabla para la relacion se creo con el nombre ganador y almacena la refrencia de cada entidad.
