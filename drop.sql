@@ -1,3 +1,8 @@
+/* 
+Andres Rocha 12-11247
+Francisco Rojas 12-10515
+*/
+
 DROP TABLE estadio;
 DROP TYPE estadio_t force;
 DROP TYPE patr_tab;
