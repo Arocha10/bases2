@@ -1,3 +1,4 @@
+/*  Instancias de la entidad equipo  */
 INSERT INTO equipo values ('real madrid','madrid');
 INSERT INTO equipo values ('barca','barcelona');
 INSERT INTO equipo values ('chelsea','londres');
