@@ -15,7 +15,7 @@ FROM equipo a WHERE a.nombre = 'chelsea';
 /*  Instancias de la entidad titulo  */ 
 
 INSERT INTO titulo values('Liga espana','1er','1000');
-INSTER INTO titulo values('Liga adelante','2da','10');
+INSERT INTO titulo values('Liga adelante','2da','10');
 INSERT INTO titulo values('Barclays premier','1er','100000');
 
 /*  Instancias de la entidad ganador  */ 
