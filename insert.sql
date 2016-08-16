@@ -70,7 +70,7 @@ FROM equipo a , integrante b WHERE a.nombre = 'real madrid' and b.nombre= 'mouri
 
 /* Consulta de la tabla anidada */
 
-SELECT Patrocinadores FROM equipo a where a.nombre ='bernabeu';
+SELECT Patrocinadores FROM estadio a where a.nombre ='bernabeu';
 
 /* Consulta de la subclase */
 
