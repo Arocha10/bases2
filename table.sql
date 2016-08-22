@@ -96,4 +96,4 @@ ADD CONSTRAINT fk_equipo
 	REFERENCES equipo;
 
 ALTER TYPE equipo_t
-ADD estadio REF estadio_t CASCADE;
+ADD ATTRIBUTE (estadio REF estadio_t) CASCADE;
