@@ -90,15 +90,11 @@ ADD MEMBER FUNCTION getEstadio RETURN estadio_t CASCADE;
 ALTER TYPE equipo_t
 ADD MEMBER FUNCTION getIntegrantes RETURN integrantes_tab CASCADE;
 
-ALTER TABLE estadio
-ADD CONSTRAINT fk_equipo
-	FOREIGN KEY (equipo)
-	REFERENCES equipo;
-
 ALTER TYPE equipo_t
 ADD ATTRIBUTE (estadio REF estadio_t) CASCADE;
 
 ALTER TABLE equipo
-ADD CONSTRAINT fk_estadio
-	FOREIGN KEY (estadio)
-	REFERENCES estadio;
+ADD SCOPE FOR (estadio) IS estadio;
+
+ALTER TABLE estadio
+ADD SCOPE FOR (equipo) IS equipo;
