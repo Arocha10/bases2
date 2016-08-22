@@ -1,5 +1,6 @@
 CREATE OR REPLACE TRIGGER ref_estadio
 BEFORE INSERT ON equipo
+FOR EACH ROW
 BEGIN
 	for reg in (select * from ESTADIO e where e.nombre = :NEW.estadio) loop 
  	IF NOT (reg.equipo == NULL) THEN
@@ -11,6 +12,7 @@ END;
 
 CREATE OR REPLACE TRIGGER estadio_delete 
 AFTER DELETE ON equipo
+FOR EACH ROW
 BEGIN
 	for reg in (select * from ESTADIO where DEREF(equipo).nombre=:old.nombre) loop 
  	SET reg.estadio= NULL

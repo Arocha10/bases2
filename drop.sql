@@ -2,10 +2,11 @@
 Andres Rocha 12-11247
 Francisco Rojas 12-10515
 */
-
-DROP TABLE estadio;
+DROP TRIGGER ref_estadio;
+DROP TRIGGER estadio_delete;
+DROP TABLE estadio CASCADE CONSTRAINTS;
 DROP TYPE estadio_t force;
-DROP TYPE patr_tab;
+DROP TYPE patr_tab force;
 DROP TABLE ganador;
 DROP TYPE ganador_t;
 DROP TABLE titulo;
@@ -14,5 +15,5 @@ DROP TABLE integrante;
 DROP TYPE jugador_t force;
 DROP TYPE entrenador_t;
 DROP TYPE integrante_t force;
-DROP TABLE equipo;
-DROP TYPE equipo_t;
+DROP TABLE equipo CASCADE CONSTRAINTS;
+DROP TYPE equipo_t force;

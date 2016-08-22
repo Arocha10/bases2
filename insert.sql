@@ -4,9 +4,9 @@ Francisco Rojas 12-10515
 */
 
 /*  Instancias de la entidad equipo  */
-INSERT INTO equipo values ('real madrid','madrid');
-INSERT INTO equipo values ('barca','barcelona');
-INSERT INTO equipo values ('chelsea','londres');
+INSERT INTO equipo values ('real madrid','madrid',NULL);
+INSERT INTO equipo values ('barca','barcelona',NULL);
+INSERT INTO equipo values ('chelsea','londres',NULL);
 
 /*  Instancias de la entidad estadio  */  
 INSERT INTO estadio Select 'bernabeu','calle 17','20000','177', REF (a), patr_tab('nike','underarmor') 
