@@ -2,11 +2,10 @@ CREATE OR REPLACE TRIGGER ref_estadio
 BEFORE INSERT ON equipo
 FOR EACH ROW
 BEGIN
-	for reg in (select * from ESTADIO e where e.nombre = :NEW.estadio) loop 
- 	IF NOT (reg.equipo == NULL) THEN
+	estadio = select * from ESTADIO e where e.nombre = :NEW.estadio
+ 	IF NOT (estadio.equipo == NULL) THEN
 	RAISE_APPLICATION_ERROR(-20505,'El estadio ya tiene equipo');
 	END IF;
- 	end loop;
 END;
 /
 
