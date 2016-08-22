@@ -1,7 +1,5 @@
 CREATE OR REPLACE TRIGGER ref_estadio
-BEFORE INSERT OF estadio
-ON equipo
-BEGIN
+BEFORE INSERT ON equipo
 SELECT equipo
 FROM estadio e
 WHERE e.nombre = :NEW.estadio
