@@ -95,3 +95,5 @@ ADD CONSTRAINT fk_equipo
 	FOREIGN KEY (equipo)
 	REFERENCES equipo;
 
+ALTER TYPE equipo_t
+ADD estadio REF estadio_t CASCADE;
