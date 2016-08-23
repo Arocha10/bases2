@@ -25,7 +25,23 @@ COMPOUND TRIGGER
 		UPDATE equipo
 		SET ESTADIO = (SELECT TREAT(REF(p) AS REF estadio_t) FROM estadio p WHERE p.nombre = :NEW.nombre) 
 		WHERE nombre = equipos.nombre;
+	
+	ELSIF (:NEW.equipo IS NULL) THEN
+		SELECT DEREF(:OLD.equipo) INTO equipos FROM dual;
+		IF (equipos.estadio IS NOT NULL) THEN
+			SELECT DEREF(equipos.estadio) INTO estadios FROM dual;
 
+			UPDATE estadio
+			SET equipo = NULL 
+			WHERE nombre = estadios.nombre;
+
+			
+		END IF;
+
+		UPDATE equipo
+		SET ESTADIO = NULL 
+		WHERE nombre = equipos.nombre;
+	
 	END IF;
 	END BEFORE EACH ROW;
 END ref_equipo;
