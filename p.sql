@@ -14,3 +14,6 @@ INSERT INTO estadio Select 'standfor bridge','street nine','100000','17/22', REF
 FROM equipo a WHERE a.nombre = 'chelsea';
 
 DELETE FROM equipo WHERE nombre = 'chelsea';
+
+update estadio SET equipo = 'chelsea'
+where nombre='bernabeu';
