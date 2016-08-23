@@ -12,3 +12,6 @@ FROM equipo a WHERE a.nombre = 'barca';
 
 INSERT INTO estadio Select 'standfor bridge','street nine','100000','17/22', REF (a), patr_tab('rayban','susuki') 
 FROM equipo a WHERE a.nombre = 'chelsea';
+
+DELETE a from equipo a
+where a.nombre = 'chelsea';
