@@ -51,3 +51,14 @@ COMPOUND TRIGGER
 	END AFTER STATEMENT;
 END ref_estadio;
 /
+CREATE OR REPLACE TRIGGER faculty_delete
+  after delete on equipo
+  for each row
+declare
+  PRAGMA AUTONOMOUS_TRANSACTION;
+begin
+  update estadio c set c.equipo = null where c.equipo =
+  (select ref(p) from equipo p where p.nombre = :old.nombre);
+commit;
+END;
+/
