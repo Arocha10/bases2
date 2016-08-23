@@ -74,7 +74,7 @@ CREATE OR REPLACE TYPE estadio_t AS OBJECT (
 	Dir VARCHAR(100),	
 	Capacidad VARCHAR(20),	
 	Inaugurado VARCHAR(20),	
-	Equipo REF equipo_t,	
+	Equipo REF equipo_t NULL,	
 	Patrocinadores patr_tab
 );
 /
