@@ -5,6 +5,7 @@ FOR UPDATE OF equipo ON estadio
 COMPOUND TRIGGER
 
 	equipos equipo_t;
+	equiposOLD equipo_t;
 	estadios estadio_t;
 	temp estadio.nombre%type;
 	BEFORE EACH ROW IS
@@ -41,6 +42,26 @@ COMPOUND TRIGGER
 		UPDATE equipo
 		SET ESTADIO = NULL 
 		WHERE nombre = equipos.nombre;
+	
+	ELSE
+		SELECT DEREF(:NEW.equipo) INTO equipos FROM dual;
+		SELECT DEREF(:OLD.equipo) INTO equiposOLD FROM dual;
+		IF (equipos.estadio IS NOT NULL) THEN
+			SELECT DEREF(equipos.estadio) INTO estadios FROM dual;
+			UPDATE estadio
+			SET equipo = NULL 
+			WHERE nombre = estadios.nombre;
+
+			
+		END IF;
+
+		UPDATE equipo
+		SET ESTADIO = (SELECT TREAT(REF(p) AS REF estadio_t) FROM estadio p WHERE p.nombre = :NEW.nombre) 
+		WHERE nombre = equipos.nombre;
+
+		UPDATE equipo
+		SET ESTADIO = NULL 
+		WHERE nombre = equiposOLD.nombre;
 	
 	END IF;
 	END BEFORE EACH ROW;
